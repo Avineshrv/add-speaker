@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem 0 0 8rem;
+  gap: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+.addButton {
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #f77f54;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}

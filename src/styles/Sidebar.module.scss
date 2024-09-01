@@ -1,0 +1,189 @@
+$primary-color: #e4875d;
+$black: #000;
+$light-black: #777;
+$white: #f8f9fa;
+$grey: #2c2c2c;
+
+.sidebar {
+  width: 100%;
+  max-width: 400px;
+  background-color: $white;
+  padding: 20px;
+  border-radius: 8px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: $black;
+    }
+
+    .closeBtn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: $light-black;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  .searchContainer {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .searchIcon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: $light-black;
+    }
+
+    .search {
+      width: 85%;
+      padding: 10px 10px 10px 35px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: $grey;
+    }
+  }
+
+  .speakerList {
+    flex-grow: 1;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 0 15px 0 0;
+
+    .speakerItem {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      &.selected {
+        border: 1px solid;
+        border-color: #28a745;
+      }
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .details {
+        flex-grow: 1;
+
+        h3 {
+          font-size: 16px;
+          margin: 0;
+          font-weight: bold;
+          color: $black;
+        }
+
+        p {
+          font-size: 14px;
+          margin: 5px 0;
+          color: $light-black;
+        }
+
+        .editBtn {
+          background: none;
+          border: none;
+          color: $primary-color;
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          cursor: pointer;
+
+          svg {
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .checkbox {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    background-color: $white;
+
+    button {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .addButton {
+      background-color: #ccc;
+      color: white;
+      &.active {
+        background-color: $primary-color;
+      }
+    }
+
+    .cancelButton {
+      background-color: #fcf3ef;
+      color: $primary-color;
+      margin-left: 10px;
+    }
+
+    .createButton {
+      background-color: transparent;
+      color: $primary-color;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    max-width: 100%;
+  }
+
+  .speakerItem {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .details {
+      margin-bottom: 10px;
+    }
+
+    .checkbox {
+      margin-left: 0;
+    }
+  }
+}

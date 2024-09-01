@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import styles from "./styles/Home.module.scss";
 
-function App() {
+export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      {!isOpen && <>
+        <h1 className={styles.heading}>Add Speaker</h1>
+        <button onClick={handleClick} className={styles.addButton}>
+          Add Speaker
+        </button>
+      </>}
+      {isOpen && <Sidebar onClose={handleClose} />}
     </div>
   );
 }
-
-export default App;
